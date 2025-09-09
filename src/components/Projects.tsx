@@ -37,27 +37,28 @@ const Projects = () => {
     <section id="projects" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 animate-fade-in">
             Featured Projects
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in-right">
             Here are some of my favorite projects that showcase my skills and creativity.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-animation">
           {projects.map((project, index) => (
             <Card 
               key={index}
-              className="group overflow-hidden hover:shadow-glow transition-all duration-300 hover:-translate-y-2 bg-card/50 backdrop-blur-sm border-border/50"
+              className="group overflow-hidden hover:shadow-glow transition-all duration-500 hover:-translate-y-3 bg-card/50 backdrop-blur-sm border-border/50 animate-scale-in hover-lift"
+              style={{ '--stagger': index } as React.CSSProperties}
             >
               <div className="relative overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="w-full h-48 object-cover transition-all duration-500 group-hover:scale-125 group-hover:rotate-1"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
               </div>
 
               <CardContent className="p-6">
@@ -83,7 +84,7 @@ const Projects = () => {
                   <Button
                     variant="default"
                     size="sm"
-                    className="flex-1"
+                    className="flex-1 hover-scale"
                     onClick={() => window.open(project.demoUrl, '_blank')}
                   >
                     <ExternalLink size={16} />
@@ -92,7 +93,7 @@ const Projects = () => {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="flex-1"
+                    className="flex-1 hover-scale"
                     onClick={() => window.open(project.githubUrl, '_blank')}
                   >
                     <Github size={16} />
@@ -108,6 +109,7 @@ const Projects = () => {
           <Button 
             variant="outline" 
             size="lg"
+            className="hover-lift animate-fade-in"
             onClick={() => window.open('https://github.com', '_blank')}
           >
             View All Projects on GitHub

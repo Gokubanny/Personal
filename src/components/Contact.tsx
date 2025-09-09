@@ -57,17 +57,17 @@ const Contact = () => {
     <section id="contact" className="py-20 bg-surface-gradient">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4 animate-fade-in">
             Get In Touch
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto animate-fade-in-left">
             Have a project in mind? Let's discuss how we can work together to bring your ideas to life.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <Card className="bg-card/50 backdrop-blur-sm border-border/50 shadow-card">
+          <Card className="bg-card/50 backdrop-blur-sm border-border/50 shadow-card animate-fade-in-left hover-lift">
             <CardContent className="p-8">
               <h3 className="text-2xl font-semibold text-foreground mb-6">
                 Send me a message
@@ -119,7 +119,7 @@ const Contact = () => {
                   type="submit" 
                   variant="hero" 
                   size="lg" 
-                  className="w-full"
+                  className="w-full hover-lift"
                 >
                   <Send size={18} />
                   Send Message
@@ -129,27 +129,28 @@ const Contact = () => {
           </Card>
 
           {/* Contact Information */}
-          <div className="space-y-8">
+          <div className="space-y-8 animate-fade-in-right">
             <div>
-              <h3 className="text-2xl font-semibold text-foreground mb-6">
+              <h3 className="text-2xl font-semibold text-foreground mb-6 animate-fade-in">
                 Let's connect
               </h3>
-              <p className="text-muted-foreground leading-relaxed mb-8">
+              <p className="text-muted-foreground leading-relaxed mb-8 animate-fade-in-left">
                 I'm always interested in hearing about new projects and opportunities. 
                 Whether you're a company looking to hire, or you're a fellow developer 
                 who wants to collaborate, I'd love to hear from you.
               </p>
             </div>
 
-            <div className="space-y-6">
+            <div className="space-y-6 stagger-animation">
               {contactInfo.map((info, index) => (
                 <Card 
                   key={index}
-                  className="group hover:shadow-glow transition-all duration-300 hover:-translate-y-1 bg-card/50 backdrop-blur-sm border-border/50"
+                  className="group hover:shadow-glow transition-all duration-500 hover:-translate-y-2 bg-card/50 backdrop-blur-sm border-border/50 animate-scale-in hover-lift"
+                  style={{ '--stagger': index } as React.CSSProperties}
                 >
                   <CardContent className="p-6 flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                      <info.icon className="w-6 h-6 text-primary" />
+                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-6">
+                      <info.icon className="w-6 h-6 text-primary transition-all duration-300 group-hover:scale-110" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-foreground">{info.title}</h4>
@@ -165,7 +166,7 @@ const Contact = () => {
               ))}
             </div>
 
-            <Card className="bg-hero-gradient text-primary-foreground shadow-glow">
+            <Card className="bg-hero-gradient text-primary-foreground shadow-glow animate-slide-up hover-lift">
               <CardContent className="p-8 text-center">
                 <h4 className="text-xl font-semibold mb-2">Ready to start a project?</h4>
                 <p className="mb-4 opacity-90">
@@ -174,7 +175,7 @@ const Contact = () => {
                 <Button 
                   variant="contact" 
                   size="lg"
-                  className="bg-white/20 border-white/40 text-white hover:bg-white hover:text-primary"
+                  className="bg-white/20 border-white/40 text-white hover:bg-white hover:text-primary hover-scale"
                   onClick={() => {
                     const element = document.querySelector('#contact');
                     element?.scrollIntoView({ behavior: 'smooth' });

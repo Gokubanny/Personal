@@ -15,9 +15,9 @@
     --popover: 0 0% 100%;
     --popover-foreground: 210 40% 8%;
 
-    --primary: 221 83% 53%;
+    --primary: 214 32% 32%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 221 83% 65%;
+    --primary-glow: 214 32% 45%;
 
     --secondary: 210 40% 96%;
     --secondary-foreground: 210 40% 8%;
@@ -36,11 +36,12 @@
     --ring: 221 83% 53%;
 
     /* Portfolio specific tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(221 83% 53%), hsl(236 72% 79%));
-    --surface-gradient: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
-    --card-shadow: 0 4px 24px -4px hsl(221 83% 53% / 0.08);
-    --glow-shadow: 0 0 40px hsl(221 83% 53% / 0.15);
-    --smooth-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --hero-gradient: linear-gradient(135deg, hsl(214 32% 32%), hsl(220 13% 45%));
+    --surface-gradient: linear-gradient(180deg, hsl(0 0% 100%), hsl(214 20% 98%));
+    --card-shadow: 0 8px 32px -8px hsl(214 32% 32% / 0.12);
+    --glow-shadow: 0 12px 48px -12px hsl(214 32% 32% / 0.25);
+    --subtle-shadow: 0 2px 8px -2px hsl(214 32% 32% / 0.08);
+    --smooth-transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
     --radius: 0.5rem;
 
@@ -71,9 +72,9 @@
     --popover: 210 40% 4%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 221 83% 53%;
+    --primary: 214 32% 45%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 221 83% 65%;
+    --primary-glow: 214 32% 55%;
 
     --secondary: 210 40% 8%;
     --secondary-foreground: 0 0% 100%;
@@ -92,10 +93,11 @@
     --ring: 221 83% 53%;
 
     /* Dark mode portfolio tokens */
-    --hero-gradient: linear-gradient(135deg, hsl(221 83% 53%), hsl(236 72% 79%));
+    --hero-gradient: linear-gradient(135deg, hsl(214 32% 45%), hsl(220 13% 55%));
     --surface-gradient: linear-gradient(180deg, hsl(210 40% 3%), hsl(210 40% 5%));
-    --card-shadow: 0 4px 24px -4px hsl(0 0% 0% / 0.3);
-    --glow-shadow: 0 0 40px hsl(221 83% 53% / 0.2);
+    --card-shadow: 0 8px 32px -8px hsl(0 0% 0% / 0.4);
+    --glow-shadow: 0 12px 48px -12px hsl(214 32% 45% / 0.3);
+    --subtle-shadow: 0 2px 8px -2px hsl(0 0% 0% / 0.2);
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -117,23 +119,41 @@
   }
 }
 
-/* Custom animations */
-@keyframes fade-in {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Custom utility classes */
+.story-link {
+  @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
 }
 
-.animate-fade-in {
-  animation: fade-in 1s ease-out;
+.hover-scale {
+  @apply transition-all duration-300 hover:scale-105;
+}
+
+.hover-lift {
+  @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-glow;
+}
+
+.stagger-animation > * {
+  animation-delay: calc(var(--stagger) * 150ms);
 }
 
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/40 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/60;
 }

@@ -17,9 +17,10 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
+    // Note: To send emails to your business email, you'll need backend integration
+    // Consider connecting to Supabase and using Edge Functions for email functionality
     toast({
-      title: "Message sent!",
+      title: "Message received!",
       description: "Thank you for your message. I'll get back to you soon.",
     });
     setFormData({ name: '', email: '', message: '' });

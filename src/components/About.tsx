@@ -14,24 +14,9 @@ const About = () => {
       description: 'Node.js, Python, PostgreSQL, MongoDB',
     },
     {
-      icon: Palette,
-      title: 'UI/UX Design',
-      description: 'Figma, Adobe XD, Design Systems',
-    },
-    {
-      icon: Smartphone,
-      title: 'Mobile Development',
-      description: 'React Native, Flutter, Progressive Web Apps',
-    },
-    {
       icon: Globe,
       title: 'Web Technologies',
       description: 'HTML5, CSS3, JavaScript, WebAPI',
-    },
-    {
-      icon: Zap,
-      title: 'Performance',
-      description: 'Optimization, Testing, CI/CD',
     },
   ];
 

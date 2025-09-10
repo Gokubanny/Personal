@@ -15,15 +15,38 @@ const Contact = () => {
   });
   const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Note: To send emails to your business email, you'll need backend integration
-    // Consider connecting to Supabase and using Edge Functions for email functionality
-    toast({
-      title: "Message received!",
-      description: "Thank you for your message. I'll get back to you soon.",
-    });
-    setFormData({ name: '', email: '', message: '' });
+    
+    try {
+      const response = await fetch('https://fafqbzjpeezdzgtibmcz.supabase.co/functions/v1/send-contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon.",
+        });
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

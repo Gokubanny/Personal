@@ -60,19 +60,19 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'Email',
-      content: 'alex@example.com',
-      href: 'mailto:alex@example.com',
+      content: 'omatulemarvellous721@gmail.com',
+      href: 'mailto:omatulemarvellous721@gmail.com',
     },
     {
       icon: Phone,
       title: 'Phone',
-      content: '+1 (555) 123-4567',
-      href: 'tel:+15551234567',
+      content: '09135114075',
+      href: 'tel:+2349135114075',
     },
     {
       icon: MapPin,
       title: 'Location',
-      content: 'San Francisco, CA',
+      content: 'Yaba Lagos State, Nigeria',
       href: '#',
     },
   ];

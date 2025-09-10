@@ -63,7 +63,7 @@ const Hero = () => {
           <div className="flex justify-center space-x-6 pt-8 animate-slide-up"
                style={{ '--stagger': '4' } as React.CSSProperties}>
             <a 
-              href="https://github.com" 
+              href="https://github.com/Gokubanny" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-white transition-all duration-300 hover:scale-125 transform p-2 rounded-full hover:bg-white/10"
@@ -71,7 +71,7 @@ const Hero = () => {
               <Github size={24} />
             </a>
             <a 
-              href="https://linkedin.com" 
+              href="https://www.linkedin.com/in/marvellous-benji-436812377" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-300 hover:text-white transition-all duration-300 hover:scale-125 transform p-2 rounded-full hover:bg-white/10"
@@ -79,7 +79,7 @@ const Hero = () => {
               <Linkedin size={24} />
             </a>
             <a 
-              href="mailto:alex@example.com"
+              href="mailto:omatulemarvellous721@gmail.com"
               className="text-gray-300 hover:text-white transition-all duration-300 hover:scale-125 transform p-2 rounded-full hover:bg-white/10"
             >
               <Mail size={24} />
